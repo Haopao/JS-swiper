@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,   user-scalable=no">
+    <title>swiper插件</title>
+    <style>
+        body,ul {
+            margin: 0;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .swiper {
+            height: 60vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .swiper ul {
+            display: flex;
+            height: 60vh;
+            transform: translateZ(0px);
+        }
+
+        .swiper ul li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 60vh;
+        }
+
+        .swiper li img {
+            width: 80%;
+            height: 80%;
+            border-radius: 20px;
+        }
+
+        .bg_img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vm;
+            height: 100vh;
+        }
+
+        .bg_img img {
+            width: 100%;
+            height: 100%;
+            filter: blur(10px);
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="swiper">
+            <div class="bg_img"><img src="img/1.jpg" alt=""></div>
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/js.js"></script>
+    <script >
+
+
+        function create(i) {
+            var oUl = document.querySelector('ul');
+            var oLi = document.createElement('li');
+            oUl.appendChild(oLi);
+            var oImg = document.createElement('img');
+            oImg.src = 'img/' + i + '.jpg';
+            oLi.appendChild(oImg);
+        }
+
+        for (var i=1;i<51;i++){
+            create(i)
+        }
+        var data = {
+            oUl:document.querySelector("ul"),
+            aLi:document.querySelectorAll("li"),
+            bg_img:document.querySelector(".bg_img img")
+        };
+        swiper(data);
+    </script>
+
+</body>
+</html>
